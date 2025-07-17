@@ -104,5 +104,5 @@ class TodoApp(TUIApplication):
 
 if __name__ == "__main__":
     app = TodoApp()
-    app.run(atual)
+    app.run()
 

@@ -1047,7 +1047,6 @@ class VerticalList(Widget):
         self._focus_index = 0
         self.is_focusable = True
         self.is_focused = False
-        # self.debugborder = True
 
     @property
     def focus_index(self):
@@ -1117,14 +1116,6 @@ class VerticalList(Widget):
         """Desenha a lista, incluindo a borda, o indicador de seleção e os widgets filhos visíveis."""
         terminal = TUIApplication.current_application.terminal
 
-        if self.debugborder:
-            terminal.move_cursor(self.x, self.y)
-            terminal.putstr('┌' + '─' * (self.width - 2) + '┐')
-            for i in range(1, self.height - 1):
-                terminal.move_cursor(self.x, self.y + i)
-                terminal.putstr('│' + ' ' * (self.width - 2) + '│')
-            terminal.move_cursor(self.x, self.y + self.height - 1)
-            terminal.putstr('└' + '─' * (self.width - 2) + '┘')
 
         visible_children = self.children[self.scroll_offset:self.scroll_offset + self.height - 2]
         
